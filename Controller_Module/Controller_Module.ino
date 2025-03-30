@@ -17,11 +17,11 @@ String currentUserId = "YH2zfPzlpqdwp5rHD62cGSxYtpL2";
 void uploadCurrentMeal();
 
 // WiFi credentials
-const char* ssid = "utexas-iot";
-const char* password = "11453802769516735032";
+const char* ssid = "WIFI";
+const char* password = "PASSWORD";
 
 // ESP32-CAM IP for triggering capture
-const char* esp32CamIP = "10.159.66.102"; // Update as needed
+const char* esp32CamIP = "IP"; // Update as needed
 
 // Positive logic button on D13 (GPIO13)
 #define BUTTON_PIN 13
@@ -33,10 +33,10 @@ const char* esp32CamIP = "10.159.66.102"; // Update as needed
 HX711 scale;
 
 // Firebase credentials/configuration
-#define API_KEY "AIzaSyC7TOTNIX31McbUnCL84GbzATQw9Vzx0cY"
-#define USER_EMAIL "rajmhetar@gmail.com"
+#define API_KEY "APIKEY"
+#define USER_EMAIL "EMAIL"
 #define USER_PASSWORD "password"
-#define STORAGE_BUCKET_ID_STR "scale-project-7ed9a.firebasestorage.app"
+#define STORAGE_BUCKET_ID_STR "BUCKET"
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig configF;

@@ -1,0 +1,348 @@
+[debug] [2025-03-30T20:37:55.080Z] ----------------------------------------------------------------------
+[debug] [2025-03-30T20:37:55.083Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\domin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-03-30T20:37:55.084Z] CLI Version:   14.0.1
+[debug] [2025-03-30T20:37:55.084Z] Platform:      win32
+[debug] [2025-03-30T20:37:55.084Z] Node Version:  v22.14.0
+[debug] [2025-03-30T20:37:55.084Z] Time:          Sun Mar 30 2025 15:37:55 GMT-0500 (Central Daylight Time)
+[debug] [2025-03-30T20:37:55.085Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-30T20:37:55.442Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-30T20:37:55.443Z] > authorizing via signed-in user (dominic.a.schwarzenbach@gmail.com)
+[debug] [2025-03-30T20:37:55.443Z] [iam] checking project scale-project-7ed9a for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-03-30T20:37:55.444Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.445Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.446Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions [none]
+[debug] [2025-03-30T20:37:55.446Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:37:55.446Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-03-30T20:37:55.671Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions 200
+[debug] [2025-03-30T20:37:55.672Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-03-30T20:37:55.672Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.672Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.672Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-03-30T20:37:55.672Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-03-30T20:37:55.804Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-03-30T20:37:55.804Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-03-30T20:37:55.804Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/scale-project-7ed9a/serviceAccounts/scale-project-7ed9a@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'scale-project-7ed9a'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-03-30T20:37:55.810Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.810Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.810Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a [none]
+[debug] [2025-03-30T20:37:55.905Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a 200
+[debug] [2025-03-30T20:37:55.905Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a {"projectNumber":"484562709719","projectId":"scale-project-7ed9a","lifecycleState":"ACTIVE","name":"scale-project","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-03-19T01:43:34.952916Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-03-30T20:37:55.908Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.908Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.908Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.908Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-03-30T20:37:55.909Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.909Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-03-30T20:37:55.909Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.909Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:55.909Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-03-30T20:37:55.909Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:37:55.912Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-03-30T20:37:55.912Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:37:55.915Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudbuild.googleapis.com [none]
+[debug] [2025-03-30T20:37:55.915Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudbuild.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:37:55.916Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/artifactregistry.googleapis.com [none]
+[debug] [2025-03-30T20:37:55.916Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/artifactregistry.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:37:56.166Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/runtimeconfig.googleapis.com 200
+[debug] [2025-03-30T20:37:56.166Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-03-30T20:37:56.167Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/artifactregistry.googleapis.com 200
+[debug] [2025-03-30T20:37:56.167Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-03-30T20:37:56.169Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudbuild.googleapis.com 200
+[debug] [2025-03-30T20:37:56.170Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-03-30T20:37:56.172Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudfunctions.googleapis.com 200
+[debug] [2025-03-30T20:37:56.172Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-03-30T20:37:56.173Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.173Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.173Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/scale-project-7ed9a/adminSdkConfig [none]
+[debug] [2025-03-30T20:37:56.346Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/scale-project-7ed9a/adminSdkConfig 200
+[debug] [2025-03-30T20:37:56.346Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/scale-project-7ed9a/adminSdkConfig {"projectId":"scale-project-7ed9a","storageBucket":"scale-project-7ed9a.firebasestorage.app"}
+[debug] [2025-03-30T20:37:56.347Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.347Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.347Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs [none]
+[debug] [2025-03-30T20:37:56.572Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs 200
+[debug] [2025-03-30T20:37:56.572Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs {"configs":[{"name":"projects/scale-project-7ed9a/configs/vision"}]}
+[debug] [2025-03-30T20:37:56.573Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.573Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.573Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables [none]
+[debug] [2025-03-30T20:37:56.675Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables 200
+[debug] [2025-03-30T20:37:56.675Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables {"variables":[{"name":"projects/scale-project-7ed9a/configs/vision/variables/api_key","updateTime":"2025-03-30T07:38:56.214570351Z"},{"name":"projects/scale-project-7ed9a/configs/vision/variables/apikey","updateTime":"2025-03-30T06:55:45.667203177Z"}]}
+[debug] [2025-03-30T20:37:56.676Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.676Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.676Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.676Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:37:56.676Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/api_key [none]
+[debug] [2025-03-30T20:37:56.677Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/apikey [none]
+[debug] [2025-03-30T20:37:56.820Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/api_key 200
+[debug] [2025-03-30T20:37:56.820Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/api_key {"name":"projects/scale-project-7ed9a/configs/vision/variables/api_key","updateTime":"2025-03-30T07:38:56.214570351Z","text":"739e62eed33997bd4837f42b35836616f695bf7d"}
+[debug] [2025-03-30T20:37:56.828Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/apikey 200
+[debug] [2025-03-30T20:37:56.828Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/scale-project-7ed9a/configs/vision/variables/apikey {"name":"projects/scale-project-7ed9a/configs/vision/variables/apikey","updateTime":"2025-03-30T06:55:45.667203177Z","text":"739e62eed33997bd4837f42b35836616f695bf7d"}
+[debug] [2025-03-30T20:37:56.831Z] Validating nodejs source
+[debug] [2025-03-30T20:37:58.210Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint . --ext .ts,.js",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/storage": "^7.15.2",
+    "@google-cloud/vision": "^5.1.0",
+    "axios": "^1.8.4",
+    "firebase": "^11.5.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-03-30T20:37:58.211Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-03-30T20:37:58.212Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-03-30T20:37:58.223Z] Found firebase-functions binary at 'C:\ScaleFunction\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8129
+
+[debug] [2025-03-30T20:38:00.454Z] Got response from /__/functions.yaml {"endpoints":{"analyzeImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"analyzeImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[error] (node:31720) MetadataLookupWarning: received unexpected error = All promises were rejected code = UNKNOWN
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-03-30T20:38:04.529Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:04.529Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:04.529Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-03-30T20:38:04.529Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:04.977Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/firebaseextensions.googleapis.com 200
+[debug] [2025-03-30T20:38:04.977Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-03-30T20:38:04.977Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-30T20:38:04.978Z] > authorizing via signed-in user (dominic.a.schwarzenbach@gmail.com)
+[debug] [2025-03-30T20:38:04.978Z] [iam] checking project scale-project-7ed9a for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-03-30T20:38:04.978Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:04.978Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:04.978Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions [none]
+[debug] [2025-03-30T20:38:04.978Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:04.978Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-03-30T20:38:05.169Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions 200
+[debug] [2025-03-30T20:38:05.170Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-03-30T20:38:05.170Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:05.170Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:05.171Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/scale-project-7ed9a/instances pageSize=100&pageToken=
+[debug] [2025-03-30T20:38:05.416Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/scale-project-7ed9a/instances 200
+[debug] [2025-03-30T20:38:05.416Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/scale-project-7ed9a/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\ScaleFunction\functions (83.81 KB) for uploading 
+[debug] [2025-03-30T20:38:05.477Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:05.477Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:05.477Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/scale-project-7ed9a/locations/-/functions [none]
+[debug] [2025-03-30T20:38:06.108Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/scale-project-7ed9a/locations/-/functions 200
+[debug] [2025-03-30T20:38:06.108Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/scale-project-7ed9a/locations/-/functions {}
+[debug] [2025-03-30T20:38:06.109Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.109Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.109Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-03-30T20:38:06.444Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/-/functions 200
+[debug] [2025-03-30T20:38:06.444Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/-/functions {"functions":[{"name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"build":"projects/484562709719/locations/us-central1/builds/a1b732b7-cfb3-477d-a3d0-79e2e0463f39","runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"UNKNOWN","updateTime":"2025-03-30T20:35:59.831944437Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"22942464901bdc238febaffa10d3c1820b324f6b"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","createTime":"2025-03-30T19:50:44.445941364Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2025-03-30T20:38:06.447Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.447Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2025-03-30T20:38:06.448Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.448Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2025-03-30T20:38:06.449Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.449Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2025-03-30T20:38:06.449Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.449Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.449Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/run.googleapis.com [none]
+[debug] [2025-03-30T20:38:06.449Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/run.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:06.450Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/eventarc.googleapis.com [none]
+[debug] [2025-03-30T20:38:06.450Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/eventarc.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:06.452Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/pubsub.googleapis.com [none]
+[debug] [2025-03-30T20:38:06.452Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/pubsub.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:06.454Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/storage.googleapis.com [none]
+[debug] [2025-03-30T20:38:06.454Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/storage.googleapis.com x-goog-quota-user=projects/scale-project-7ed9a
+[debug] [2025-03-30T20:38:06.710Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/storage.googleapis.com 200
+[debug] [2025-03-30T20:38:06.710Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[debug] [2025-03-30T20:38:06.715Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/eventarc.googleapis.com 200
+[debug] [2025-03-30T20:38:06.715Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2025-03-30T20:38:06.717Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/pubsub.googleapis.com 200
+[debug] [2025-03-30T20:38:06.717Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2025-03-30T20:38:06.718Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/run.googleapis.com 200
+[debug] [2025-03-30T20:38:06.718Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/scale-project-7ed9a/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-03-30T20:38:06.719Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.719Z] Checked if tokens are valid: true, expires at: 1743368645762
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-03-30T20:38:06.719Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.720Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:06.720Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-03-30T20:38:06.720Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-03-30T20:38:06.897Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-03-30T20:38:06.898Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-484562709719@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"116780041108986152401"}}
+[debug] [2025-03-30T20:38:07.015Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-03-30T20:38:07.015Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/484562709719/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-484562709719@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"102953904378471709185"}}
+[debug] [2025-03-30T20:38:07.018Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.018Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.018Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a [none]
+[debug] [2025-03-30T20:38:07.083Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a 200
+[debug] [2025-03-30T20:38:07.083Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/scale-project-7ed9a {"projectNumber":"484562709719","projectId":"scale-project-7ed9a","lifecycleState":"ACTIVE","name":"scale-project","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-03-19T01:43:34.952916Z"}
+[debug] [2025-03-30T20:38:07.085Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.085Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.085Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/scale-project-7ed9a/billingInfo [none]
+[debug] [2025-03-30T20:38:07.322Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/scale-project-7ed9a/billingInfo 200
+[debug] [2025-03-30T20:38:07.322Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/scale-project-7ed9a/billingInfo {"name":"projects/scale-project-7ed9a/billingInfo","projectId":"scale-project-7ed9a","billingAccountName":"billingAccounts/017E81-4D61E9-4500EE","billingEnabled":true}
+[debug] [2025-03-30T20:38:07.324Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.324Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.324Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-03-30T20:38:07.527Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-03-30T20:38:07.527Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com/d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip?GoogleAccessId=service-484562709719@gcf-admin-robot.iam.gserviceaccount.com&Expires=1743368887&Signature=iL9vzoD62jwKRbgl1ql16MhcRmXxFzW1Imak%2Fx7sC3J8Gya0hab09QC%2BZC63Njshk%2Fb3pJeZ55BgrjFIvCHV%2FR6vAsvBJY5ATla4Enk2EUi58EM7%2BAiu5wMk0tq082rIGnNmJU97uCzU0lhcULc3YzgASjGX1gVXpvs88H1OQwyKRjx6yfOay0hsTBQUkVpx0tobzt4Me7HGh%2B6%2FAep4zG6uCRVPMnKM6l0wUsP%2B4ksgRdhm0z5jqWq7z1yTmSuRFYlQYqSFEzDV11kG4Sg7Mc0PwU9K94zT4s1mo4lPV3Sz8J5tUP2WkYVmOUTo2D9%2FhCdHldDGZuxFAY6PccG%2Frg%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com","object":"d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip"}}
+[debug] [2025-03-30T20:38:07.528Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com/d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip GoogleAccessId=service-484562709719%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1743368887&Signature=iL9vzoD62jwKRbgl1ql16MhcRmXxFzW1Imak%2Fx7sC3J8Gya0hab09QC%2BZC63Njshk%2Fb3pJeZ55BgrjFIvCHV%2FR6vAsvBJY5ATla4Enk2EUi58EM7%2BAiu5wMk0tq082rIGnNmJU97uCzU0lhcULc3YzgASjGX1gVXpvs88H1OQwyKRjx6yfOay0hsTBQUkVpx0tobzt4Me7HGh%2B6%2FAep4zG6uCRVPMnKM6l0wUsP%2B4ksgRdhm0z5jqWq7z1yTmSuRFYlQYqSFEzDV11kG4Sg7Mc0PwU9K94zT4s1mo4lPV3Sz8J5tUP2WkYVmOUTo2D9%2FhCdHldDGZuxFAY6PccG%2Frg%3D%3D
+[debug] [2025-03-30T20:38:07.529Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com/d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip [stream]
+[debug] [2025-03-30T20:38:07.743Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com/d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip 200
+[debug] [2025-03-30T20:38:07.743Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com/d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 22 (2nd Gen) function analyzeImage(us-central1)... 
+[debug] [2025-03-30T20:38:07.750Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.750Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:07.750Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels%2CbuildConfig.buildEnvironmentVariables
+[debug] [2025-03-30T20:38:07.750Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage {"name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-uploads-484562709719.us-central1.cloudfunctions.appspot.com","object":"d5fadeb1-75f0-4b16-9264-ae0ca2fda890.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"}}
+[debug] [2025-03-30T20:38:08.943Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage 200
+[debug] [2025-03-30T20:38:08.943Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2025-03-30T20:38:08.944Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:08.944Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:08.944Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:09.071Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:09.071Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2025-03-30T20:38:09.582Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:09.583Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:09.583Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:09.583Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:09.780Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:09.780Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Creating build","state":"IN_PROGRESS","resource":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae"},"done":false}
+[debug] [2025-03-30T20:38:10.788Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:10.789Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:10.789Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:10.789Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:10.993Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:10.993Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae"},"done":false}
+[debug] [2025-03-30T20:38:12.996Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:12.997Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:12.997Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:12.997Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:13.160Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:13.160Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae"},"done":false}
+[debug] [2025-03-30T20:38:17.166Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:17.167Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:17.167Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:17.167Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:17.359Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:17.360Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae"},"done":false}
+[debug] [2025-03-30T20:38:25.361Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:25.361Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:25.361Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:25.362Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:25.557Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:25.558Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/484562709719/locations/us-central1/builds/30d3de23-0d26-4d95-b3d6-dc2143b500ae"},"done":false}
+[debug] [2025-03-30T20:38:35.566Z] [update-default-us-central1-analyzeImage] Retrying task index 0
+[debug] [2025-03-30T20:38:35.567Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:35.567Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:35.567Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf [none]
+[debug] [2025-03-30T20:38:35.802Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf 200
+[debug] [2025-03-30T20:38:35.802Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf {"name":"projects/scale-project-7ed9a/locations/us-central1/operations/operation-1743367087791-6319547fb1d45-91e7db54-ae839ebf","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-03-30T20:38:08.783474441Z","endTime":"2025-03-30T20:38:30.343967171Z","target":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/scale-project-7ed9a/locations/us-central1/functions/analyzeImage","buildConfig":{"runtime":"nodejs22","entryPoint":"analyzeImage","source":{"storageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743367088735250"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-484562709719-us-central1","object":"analyzeImage/function-source.zip","generation":"1743364244226966"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/scale-project-7ed9a/serviceAccounts/484562709719-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}","GCLOUD_PROJECT":"scale-project-7ed9a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage","FUNCTION_TARGET":"analyzeImage","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"484562709719-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"42da42478fe8e01f4e1b7c85592148e425020350"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/scale-project-7ed9a/locations/us-central1/services/analyzeimage for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-scale-project-7ed9a.cloudfunctions.net/analyzeImage","satisfiesPzi":true},"stages":[{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":true,"error":{"code":13,"message":"Build failed with status: FAILURE and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719."}}
+[debug] [2025-03-30T20:38:35.803Z] Got source token undefined for region us-central1
+[error] Build failed with status: FAILURE and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719.
+[debug] [2025-03-30T20:38:35.810Z] Total Function Deployment time: 28058
+[debug] [2025-03-30T20:38:35.810Z] 1 Functions Deployed
+[debug] [2025-03-30T20:38:35.810Z] 1 Functions Errored
+[debug] [2025-03-30T20:38:35.810Z] 0 Function Deployments Aborted
+[debug] [2025-03-30T20:38:35.810Z] Average Function Deployment time: 28057
+[info] 
+[info] Functions deploy had errors with the following functions:
+	analyzeImage(us-central1)
+[debug] [2025-03-30T20:38:35.884Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[debug] [2025-03-30T20:38:35.885Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:35.885Z] Checked if tokens are valid: true, expires at: 1743368645762
+[debug] [2025-03-30T20:38:35.885Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2025-03-30T20:38:36.099Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2025-03-30T20:38:36.099Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts {"name":"projects/scale-project-7ed9a/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2025-03-22T05:00:13.563824Z","updateTime":"2025-03-30T19:05:26.921478Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"604800s"}}},"sizeBytes":"1545490068","vulnerabilityScanningConfig":{"lastEnableTime":"2025-03-22T04:59:58.877772290Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/scale-project-7ed9a/gcf-artifacts"}
+[debug] [2025-03-30T20:38:36.099Z] Functions deploy failed.
+[debug] [2025-03-30T20:38:36.099Z] {
+  "endpoint": {
+    "id": "analyzeImage",
+    "project": "scale-project-7ed9a",
+    "region": "us-central1",
+    "entryPoint": "analyzeImage",
+    "platform": "gcfv2",
+    "runtime": "nodejs22",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"scale-project-7ed9a\",\"storageBucket\":\"scale-project-7ed9a.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "scale-project-7ed9a",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/scale-project-7ed9a/locations/us-central1/services/analyzeImage"
+    },
+    "codebase": "default",
+    "securityLevel": "SECURE_ALWAYS",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "42da42478fe8e01f4e1b7c85592148e425020350"
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Build failed with status: FAILURE and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719.",
+    "original": {
+      "code": 13,
+      "message": "Build failed with status: FAILURE and message: An unexpected error occurred. Refer to build logs: https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/30d3de23-0d26-4d95-b3d6-dc2143b500ae?project=484562709719."
+    },
+    "status": 13,
+    "code": 13
+  }
+}
+[debug] [2025-03-30T20:38:36.145Z] Error: Failed to update function analyzeImage in region us-central1
+    at C:\Users\domin\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:399:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Fabricator.updateV2Function (C:\Users\domin\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:388:32)
+    at async Fabricator.updateEndpoint (C:\Users\domin\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:155:13)
+    at async handle (C:\Users\domin\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions

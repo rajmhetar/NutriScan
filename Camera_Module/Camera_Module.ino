@@ -11,14 +11,14 @@
 #include <addons/TokenHelper.h>
 
 // WiFi Credentials
-const char* ssid = "utexas-iot"; 
-const char* password = "11453802769516735032";
+const char* ssid = "WIFI"; 
+const char* password = "PASSWORD";
 
 // Firebase Credentials
-#define API_KEY "AIzaSyC7TOTNIX31McbUnCL84GbzATQw9Vzx0cY"
-#define USER_EMAIL "rajmhetar@gmail.com"
+#define API_KEY "APIKEY"
+#define USER_EMAIL "email"
 #define USER_PASSWORD "password"
-#define STORAGE_BUCKET_ID "scale-project-7ed9a.firebasestorage.app"
+#define STORAGE_BUCKET_ID "STORAGE"
 #define FILE_PHOTO_PATH "/photo.jpg"
 #define BUCKET_PHOTO "/data/photo.jpg"
 
