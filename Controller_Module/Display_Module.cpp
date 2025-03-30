@@ -59,57 +59,108 @@ String DisplayModule::readTextFile(const char* localPath) {
   return content;
 }
 
-NutritionData DisplayModule::parseNutritionJSON(const String &jsonText) {
+NutritionData DisplayModule::parseNutritionJSON(const String &inputText) {
   NutritionData data = {"Unknown", 0, 0, 0, 0};
   
-  // Allocate the JSON document
-  // Use arduinojson.org/v6/assistant to compute the capacity.
-  DynamicJsonDocument doc(1024);
+  String trimmedInput = inputText;
+  trimmedInput.trim();
   
-  // Clean the jsonText by removing backticks and extra newlines
-  String cleanJson = jsonText;
-  cleanJson.replace("```", "");
-  
-  // Parse JSON object
-  DeserializationError error = deserializeJson(doc, cleanJson);
-  
-  // Test if parsing succeeds
-  if (error) {
-    Serial.print(F("deserializeJson() failed: "));
-    Serial.println(error.f_str());
-    return data;
+  // Check if the input is JSON (starts with '{')
+  if (trimmedInput.startsWith("{")) {
+    // Existing JSON parsing
+    DynamicJsonDocument doc(1024);
+    String cleanJson = trimmedInput;
+    cleanJson.replace("```", "");
+    DeserializationError error = deserializeJson(doc, cleanJson);
+    
+    if (error) {
+      Serial.print(F("deserializeJson() failed: "));
+      Serial.println(error.f_str());
+      return data;
+    }
+    
+    if (doc.containsKey("matchedFood")) {
+      JsonObject food = doc["matchedFood"];
+      if (food.containsKey("name")) {
+        data.foodName = food["name"].as<String>();
+      }
+      if (food.containsKey("calories")) {
+        data.calories = food["calories"].as<int>();
+      }
+      if (food.containsKey("fat")) {
+        data.fat = food["fat"].as<float>();
+      }
+      if (food.containsKey("carbs")) {
+        data.carbs = food["carbs"].as<float>();
+      }
+      if (food.containsKey("protein")) {
+        data.protein = food["protein"].as<float>();
+      }
+    }
+  } 
+  else {
+    // Plain text format parsing (e.g., "Food: Banana")
+    int lineStart = 0;
+    while (lineStart < inputText.length()) {
+      int lineEnd = inputText.indexOf('\n', lineStart);
+      if (lineEnd == -1) {
+        lineEnd = inputText.length();
+      }
+      String line = inputText.substring(lineStart, lineEnd);
+      line.trim();
+      
+      if (line.length() > 0) {
+        int colonIndex = line.indexOf(':');
+        if (colonIndex != -1) {
+          String key = line.substring(0, colonIndex);
+          String value = line.substring(colonIndex + 1);
+          key.trim();
+          value.trim();
+          
+          if (key.equalsIgnoreCase("Food")) {
+            data.foodName = value;
+          } 
+          else if (key.equalsIgnoreCase("Calories")) {
+            // Remove any text after the number (like "kcal")
+            int spaceIndex = value.indexOf(' ');
+            if (spaceIndex != -1) {
+              value = value.substring(0, spaceIndex);
+            }
+            data.calories = value.toInt();
+          } 
+          else if (key.equalsIgnoreCase("Protein")) {
+            int spaceIndex = value.indexOf(' ');
+            if (spaceIndex != -1) {
+              value = value.substring(0, spaceIndex);
+            }
+            data.protein = value.toFloat();
+          } 
+          else if (key.equalsIgnoreCase("Fat")) {
+            int spaceIndex = value.indexOf(' ');
+            if (spaceIndex != -1) {
+              value = value.substring(0, spaceIndex);
+            }
+            data.fat = value.toFloat();
+          } 
+          else if (key.equalsIgnoreCase("Carbs")) {
+            int spaceIndex = value.indexOf(' ');
+            if (spaceIndex != -1) {
+              value = value.substring(0, spaceIndex);
+            }
+            data.carbs = value.toFloat();
+          }
+        }
+      }
+      
+      lineStart = lineEnd + 1;
+    }
   }
   
-  // Extract values
-  if (doc.containsKey("matchedFood")) {
-    JsonObject food = doc["matchedFood"];
-    
-    if (food.containsKey("name")) {
-      data.foodName = food["name"].as<String>();
-    }
-    
-    if (food.containsKey("calories")) {
-      data.calories = food["calories"].as<int>();
-    }
-    
-    if (food.containsKey("fat")) {
-      data.fat = food["fat"].as<float>();
-    }
-    
-    if (food.containsKey("carbs")) {
-      data.carbs = food["carbs"].as<float>();
-    }
-    
-    if (food.containsKey("protein")) {
-      data.protein = food["protein"].as<float>();
-    }
-  }
-  
-  Serial.printf("Parsed nutrition data: %s - Calories = %i, Fat = %.1f, Carbs = %.1f, Protein = %.1f\n", 
+  Serial.printf("Parsed nutrition data: %s - Calories = %i, Fat = %.1f, Carbs = %.1f, Protein = %.1f\n",
                 data.foodName.c_str(), data.calories, data.fat, data.carbs, data.protein);
-                
   return data;
 }
+
 
 void DisplayModule::displayNutritionData(const NutritionData &data) {
   tft.fillScreen(COLOR_BG);

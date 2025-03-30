@@ -40,7 +40,7 @@ DisplayModule displayModule(5, 2, 15);
 
 // Variables for periodic display refresh
 unsigned long previousRefresh = 0;
-const unsigned long refreshInterval = 30000; // Refresh every 30 seconds
+const unsigned long refreshInterval = 15000; // Refresh every 15 seconds
 
 void tokenStatusCallback(TokenInfo info) {
   Serial.printf("Token status: %d\n", info.status);
@@ -113,25 +113,6 @@ void setup() {
 }
 
 void loop() {
-  // --- Optionally, include the HX711 test code as comments (if needed) ---
-  /*
-  if (scale.is_ready()) {
-    scale.set_scale();    
-    Serial.println("Tare... remove any weights from the scale.");
-    delay(5000);
-    scale.tare();
-    Serial.println("Tare done...");
-    Serial.print("Place a known weight on the scale...");
-    delay(5000);
-    long reading = scale.get_units(10);
-    Serial.print("Result: ");
-    Serial.println(reading);
-  } else {
-    Serial.println("HX711 not found.");
-  }
-  delay(1000);
-  */
-
   // Button-triggered ESP32-CAM capture code
   if (digitalRead(BUTTON_PIN) == HIGH) {
     delay(50);  // Debounce delay
@@ -156,7 +137,7 @@ void loop() {
     }
   }
 
-  // Periodically refresh the display (every 30 seconds)
+  // Periodically refresh the display (every 15 seconds)
   unsigned long currentMillis = millis();
   if (currentMillis - previousRefresh >= refreshInterval) {
     previousRefresh = currentMillis;
