@@ -68,7 +68,7 @@ void setup() {
   Serial.println("\nConnected to WiFi!");
   Serial.print("Controller IP Address: ");
   Serial.println(WiFi.localIP());
-  Serial.println("\nPress the button on GPIO13 to trigger the ESP32-CAM.");
+  Serial.println("\nPress the button on GPIO13 to log a meal.");
 
   // Set up load cell
   setCpuFrequencyMhz(80);
@@ -113,6 +113,15 @@ void setup() {
   } else {
     Serial.println("Failed to download text file.");
   }
+
+  configTime(0, 0, "pool.ntp.org", "time.nist.gov");
+  Serial.println("Waiting for NTP time sync...");
+  while (time(nullptr) < 100000) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nTime synchronized!");
+
 }
 
 void loop() {
@@ -139,7 +148,7 @@ void loop() {
       String jsonContent = displayModule.readTextFile(localTextFile);
       Serial.println("Refreshed JSON content: " + jsonContent);
       
-        displayModule.displayText(jsonContent);
+      displayModule.displayText(jsonContent);
 
     } else {
       Serial.println("Failed to refresh text file.");
@@ -182,3 +191,4 @@ void uploadCurrentMeal() {
     Serial.println(fbdo.errorReason());
   }
 }
+
