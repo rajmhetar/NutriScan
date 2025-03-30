@@ -11,7 +11,6 @@
 // Define the global currentMealData variable (definition)
 NutritionData currentMealData = {"Unknown", 0, 0.0, 0.0, 0.0};
 
-// Hardcoded user ID
 String currentUserId = "YH2zfPzlpqdwp5rHD62cGSxYtpL2";
 
 void uploadCurrentMeal();
@@ -19,9 +18,6 @@ void uploadCurrentMeal();
 // WiFi credentials
 const char* ssid = "WIFI";
 const char* password = "PASSWORD";
-
-// ESP32-CAM IP for triggering capture
-const char* esp32CamIP = "IP"; // Update as needed
 
 // Positive logic button on D13 (GPIO13)
 #define BUTTON_PIN 13
@@ -35,8 +31,8 @@ HX711 scale;
 // Firebase credentials/configuration
 #define API_KEY "APIKEY"
 #define USER_EMAIL "EMAIL"
-#define USER_PASSWORD "password"
-#define STORAGE_BUCKET_ID_STR "BUCKET"
+#define USER_PASSWORD "PASSWORD"
+#define STORAGE_BUCKET_ID_STR "STORAGE_BUCKET_ID"
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig configF;
@@ -72,7 +68,7 @@ void setup() {
   Serial.println("\nConnected to WiFi!");
   Serial.print("Controller IP Address: ");
   Serial.println(WiFi.localIP());
-  Serial.println("\nPress the button on GPIO13 to upload current meal.");
+  Serial.println("\nPress the button on GPIO13 to trigger the ESP32-CAM.");
 
   // Set up load cell
   setCpuFrequencyMhz(80);
@@ -143,8 +139,8 @@ void loop() {
       String jsonContent = displayModule.readTextFile(localTextFile);
       Serial.println("Refreshed JSON content: " + jsonContent);
       
-      // Parse JSON nutrition data and display it visually
-      displayModule.displayText(jsonContent);
+        displayModule.displayText(jsonContent);
+
     } else {
       Serial.println("Failed to refresh text file.");
     }
@@ -186,4 +182,3 @@ void uploadCurrentMeal() {
     Serial.println(fbdo.errorReason());
   }
 }
-
