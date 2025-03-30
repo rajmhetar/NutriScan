@@ -1,0 +1,119 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  /* Account Icon in Top Right */
+  .account-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+  }
+  
+  /* Container for content sections */
+  .container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  /* Card styling */
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  /* Form and Input Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, select, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  
+  button.btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Google Sign-In Button */
+  button.google-btn {
+    background-color: #dd4b39;
+  }
+  
+  /* Logout Button */
+  button.logout-btn {
+    background-color: #f44336;
+  }
+  
+  /* Output Messages */
+  .output {
+    font-size: 0.9em;
+    color: #e53935;
+    margin-top: 5px;
+  }
+  
+  /* Meal Entry */
+  .meal-entry {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  /* Progress Bar Styles */
+  .progress-container {
+    margin: 5px 0;
+  }
+  
+  .progress-label {
+    font-size: 0.85em;
+    margin-bottom: 3px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 10px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NutriScan - Your Personal Nutrition Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Firebase compat libraries (namespaced) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>NutriScan</h1>
+    <p>Your Personal Nutrition Tracker</p>
+  </header>
+
+  <!-- Registration & Login Section -->
+  <section id="auth-section" class="container">
+    <div class="auth-card">
+      <h2>Register</h2>
+      <form id="register-form">
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="password" id="register-password" placeholder="Password" required />
+        <button type="submit" class="btn">Register</button>
+      </form>
+      <div id="register-output" class="output"></div>
+    </div>
+    
+    <div class="auth-card">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <div id="login-output" class="output"></div>
+      <button id="google-signin-btn" class="btn google-btn">Sign In with Google</button>
+    </div>
+  </section>
+
+  <!-- Dashboard Section (hidden by default) -->
+  <section id="dashboard-section" class="container" style="display: none;">
+    <h2>Your NutriScan Dashboard</h2>
+    <p id="welcome-message"></p>
+    
+    <!-- Meal Logging & Editing Form -->
+    <div class="card">
+      <h3 id="meal-form-title">Log Your Meal</h3>
+      <form id="meal-log-form">
+        <input type="text" id="meal-name" placeholder="Meal Name" required />
+        <input type="number" id="meal-calories" placeholder="Calories" required />
+        <!-- Clarify the order: fat, carbs, protein -->
+        <input type="text" id="meal-nutrients" placeholder="Nutrients (fat, carbs, protein)" required />
+        <button type="submit" class="btn" id="submit-meal-btn">Submit Meal</button>
+        <button type="button" class="btn cancel-btn" id="cancel-edit-btn" style="display:none;">Cancel Edit</button>
+      </form>
+      <div id="meal-log-output" class="output"></div>
+    </div>
+    
+    <!-- Filter Section -->
+    <div class="card">
+      <h3>Filter Meals by Date</h3>
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" />
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" />
+      <button class="btn" id="filter-btn">Filter</button>
+    </div>
+    
+    <!-- Statistics Section -->
+    <div class="card">
+      <h3>Daily Statistics</h3>
+      <div id="statistics-output">
+        <!-- e.g., "Total Calories Today: 1234 kCal" -->
+      </div>
+    </div>
+    
+    <!-- Logout Button -->
+    <button id="logout-btn" class="btn logout-btn">Logout</button>
+  </section>
+
+  <!-- Load main.js after Firebase libraries -->
+  <script src="main.js"></script>
+</body>
+</html>
