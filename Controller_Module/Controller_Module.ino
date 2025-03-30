@@ -8,6 +8,14 @@
 #include <SPI.h>
 #include "Display_Module.h"  // Include our new display module
 
+// Define the global currentMealData variable (definition)
+NutritionData currentMealData = {"Unknown", 0, 0.0, 0.0, 0.0};
+
+// Hardcoded user ID
+String currentUserId = "YH2zfPzlpqdwp5rHD62cGSxYtpL2";
+
+void uploadCurrentMeal();
+
 // WiFi credentials
 const char* ssid = "utexas-iot";
 const char* password = "11453802769516735032";
@@ -64,7 +72,7 @@ void setup() {
   Serial.println("\nConnected to WiFi!");
   Serial.print("Controller IP Address: ");
   Serial.println(WiFi.localIP());
-  Serial.println("\nPress the button on GPIO13 to trigger the ESP32-CAM.");
+  Serial.println("\nPress the button on GPIO13 to upload current meal.");
 
   // Set up load cell
   setCpuFrequencyMhz(80);
@@ -112,27 +120,14 @@ void setup() {
 }
 
 void loop() {
-  // Button-triggered ESP32-CAM capture code
   if (digitalRead(BUTTON_PIN) == HIGH) {
-    delay(50);  // Debounce delay
-    if (digitalRead(BUTTON_PIN) == HIGH) {
-      Serial.println("Button pressed! Sending /capture request to ESP32-CAM...");
-      String url = "http://" + String(esp32CamIP) + "/capture";
-      HTTPClient http;
-      http.begin(url);
-      int httpResponseCode = http.GET();
-      if (httpResponseCode > 0) {
-        Serial.print("ESP32-CAM Response Code: ");
-        Serial.println(httpResponseCode);
-        String payload = http.getString();
-        Serial.println(payload);
-      } else {
-        Serial.print("Error code: ");
-        Serial.println(httpResponseCode);
-      }
-      http.end();
-      // A small delay to prevent repeated triggers
-      delay(1500);
+    // Check that a meal has been displayed (using the global currentMealData)
+    if (currentMealData.foodName != "" && currentMealData.foodName != "Unknown") {
+      Serial.println("Button pressed: Uploading current meal for user " + currentUserId);
+      uploadCurrentMeal();
+      delay(1000); // Simple debounce delay; adjust as needed.
+    } else {
+      Serial.println("Button pressed but no valid meal data available.");
     }
   }
 
@@ -149,11 +144,46 @@ void loop() {
       Serial.println("Refreshed JSON content: " + jsonContent);
       
       // Parse JSON nutrition data and display it visually
-      NutritionData nutritionData = displayModule.parseNutritionJSON(jsonContent);
-      displayModule.displayNutritionData(nutritionData);
+      displayModule.displayText(jsonContent);
     } else {
       Serial.println("Failed to refresh text file.");
     }
-
   }
 }
+
+void uploadCurrentMeal() {
+  // For timestamp, we'll use a fixed placeholder for now.
+  String ts = "2025-03-30T12:00:00Z";  // Replace with a proper RFC3339 timestamp if needed.
+  
+  // Build the payload string in Firestore format.
+  String payload = "{";
+  payload += "\"fields\": {";
+  payload += "\"name\": {\"stringValue\": \"" + currentMealData.foodName + "\"},";
+  payload += "\"calories\": {\"integerValue\": \"" + String(currentMealData.calories) + "\"},";
+  payload += "\"timestamp\": {\"timestampValue\": \"" + ts + "\"},";
+  payload += "\"userId\": {\"stringValue\": \"" + currentUserId + "\"},";
+  payload += "\"nutrients\": {\"mapValue\": {\"fields\": {";
+  payload += "\"fat\": {\"doubleValue\": \"" + String(currentMealData.fat, 2) + "\"},";
+  payload += "\"carbs\": {\"doubleValue\": \"" + String(currentMealData.carbs, 2) + "\"},";
+  payload += "\"protein\": {\"doubleValue\": \"" + String(currentMealData.protein, 2) + "\"}";
+  payload += "}}}";
+  payload += "}}";
+  
+  Serial.println("Payload: " + payload);
+  
+  // Create a document in Firestore under the "meals" collection.
+  if (Firebase.Firestore.createDocument(&fbdo,
+      "scale-project-7ed9a",  // Project ID
+      "(default)",            // Database ID
+      "meals",                // Collection ID
+      "",                     // Document ID (auto-generate if empty)
+      payload.c_str(),        // JSON content
+      ""))                    // Mask (empty string)
+  {
+    Serial.println("Meal uploaded successfully.");
+  } else {
+    Serial.print("Meal upload failed: ");
+    Serial.println(fbdo.errorReason());
+  }
+}
+

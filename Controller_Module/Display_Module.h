@@ -22,6 +22,9 @@ struct NutritionData {
   float protein;
 };
 
+// Declare the global current meal data variable.
+extern NutritionData currentMealData;
+
 class DisplayModule {
 public:
   // Constructor: pass in TFT's CS, D/C, and RESET pins.

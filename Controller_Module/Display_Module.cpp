@@ -9,7 +9,6 @@
 #define COLOR_TITLE   ST77XX_CYAN
 
 String truncateString(const String &str, int maxWidth, int textSize) {
-  // Estimate the width per character (6 pixels per char at textSize 1)
   int charWidth = 6 * textSize;
   int baseMaxChars = maxWidth / charWidth;
   int maxChars = baseMaxChars + 5;
@@ -194,8 +193,10 @@ void DisplayModule::drawMacroBar(int x, int y, int totalBarWidth, int height, fl
   tft.print(value, 1);
 }
 
-// NEW: Updated displayText() function that updates the global meal variable.
+// UPDATED: displayText() now updates the global current meal variable before displaying.
 void DisplayModule::displayText(const String &text) {
   NutritionData data = parseNutritionJSON(text);
+  // Update the global currentMealData (declared in Controller_Module.ino)
+  currentMealData = data;
   displayNutritionData(data);
 }
