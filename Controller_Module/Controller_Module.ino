@@ -46,7 +46,6 @@ void tokenStatusCallback(TokenInfo info) {
   Serial.printf("Token status: %d\n", info.status);
 }
 
-
 void setup() {
   Serial.begin(115200);
   delay(1000);

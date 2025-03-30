@@ -7,7 +7,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7735.h>
 #include <SPI.h>
-#include <ArduinoJson.h>  // Added for JSON parsing
+#include <ArduinoJson.h>
 
 // Extern declarations for global Firebase objects defined in your main sketch.
 extern FirebaseData fbdo;
@@ -36,13 +36,13 @@ public:
   // Read the downloaded file from LittleFS
   String readTextFile(const char* localPath);
   
-  // Parse nutrition data from JSON text
+  // Parse nutrition data from JSON or plain text format
   NutritionData parseNutritionJSON(const String &jsonText);
   
   // Display nutrition data with visual graph
   void displayNutritionData(const NutritionData &data);
   
-  // Legacy method to display raw text
+  // Display text (parse, update global meal data, and show on LCD)
   void displayText(const String &text);
   
 private:
@@ -50,7 +50,7 @@ private:
   uint16_t width;
   uint16_t height;
   
-  // Helper methods for drawing
+  // Helper method for drawing macro nutrient bars
   void drawMacroBar(int x, int y, int width, int height, float value, float maxValue, uint16_t color, const char* label);
 };
 
