@@ -40,7 +40,7 @@ DisplayModule displayModule(5, 2, 15);
 
 // Variables for periodic display refresh
 unsigned long previousRefresh = 0;
-const unsigned long refreshInterval = 60000; // Refresh every 60 seconds
+const unsigned long refreshInterval = 30000; // Refresh every 30 seconds
 
 void tokenStatusCallback(TokenInfo info) {
   Serial.printf("Token status: %d\n", info.status);
@@ -101,7 +101,7 @@ void setup() {
   displayModule.begin();
 
   // Initially download and display the text file.
-  const char* remoteTextFile = "results/Hello_World_Test.txt";
+  const char* remoteTextFile = "results/results.txt";
   const char* localTextFile = "/textfile.txt";
   if (displayModule.downloadTextFile(remoteTextFile, localTextFile)) {
     String textContent = displayModule.readTextFile(localTextFile);
@@ -156,20 +156,24 @@ void loop() {
     }
   }
 
-  // Periodically refresh the display (every 60 seconds)
+  // Periodically refresh the display (every 30 seconds)
   unsigned long currentMillis = millis();
   if (currentMillis - previousRefresh >= refreshInterval) {
     previousRefresh = currentMillis;
     Serial.println("Refreshing display...");
 
-    const char* remoteTextFile = "/results/Hello_World_Test.txt";
+    const char* remoteTextFile = "results/results.txt";
     const char* localTextFile = "/textfile.txt";
     if (displayModule.downloadTextFile(remoteTextFile, localTextFile)) {
-      String textContent = displayModule.readTextFile(localTextFile);
-      Serial.println("Refreshed text content: " + textContent);
-      displayModule.displayText(textContent);
+      String jsonContent = displayModule.readTextFile(localTextFile);
+      Serial.println("Refreshed JSON content: " + jsonContent);
+      
+      // Parse JSON nutrition data and display it visually
+      NutritionData nutritionData = displayModule.parseNutritionJSON(jsonContent);
+      displayModule.displayNutritionData(nutritionData);
     } else {
       Serial.println("Failed to refresh text file.");
     }
+
   }
 }
